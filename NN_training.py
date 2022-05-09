@@ -394,12 +394,13 @@ def predict_dataset(ensemble, X_scaled, x, Sm, Sstd, Tm, Tstd):
 
     x = add_sig(x)
 
-    ae_S = xr.ufuncs.fabs(x['PSAL'] - x['PSAL_predicted'])
-    ae_T = xr.ufuncs.fabs(x['TEMP'] - x['TEMP_predicted'])
+    ae_S = np.fabs(x['PSAL'] - x['PSAL_predicted'])
+    ae_T = np.fabs(x['TEMP'] - x['TEMP_predicted'])
     x = x.assign(variables={"ae_S": (('N_PROF', 'PRES_INTERPOLATED'), ae_S.data)})
     x = x.assign(variables={"ae_T": (('N_PROF', 'PRES_INTERPOLATED'), ae_T.data)})
     x = x.assign(variables={"rmse_T_model": (('Model', 'PRES_INTERPOLATED'), np.array(rmse_T))})
     x = x.assign(variables={"rmse_S_model": (('Model', 'PRES_INTERPOLATED'), np.array(rmse_S))})
+   
     return x
 
 
@@ -462,12 +463,18 @@ def main():
         # ----------- Evaluate model on test andSve both datasets ------------ #
         X_test, _ = format_input(ds_test, scaler_input)
         ds_train = predict_dataset(ensemble, X_train, ds_train, Sm, Sstd, Tm, Tstd)
+
         ds_train.to_netcdf(f"{path_out}/train_ds.nc")
+
         ds_test = predict_dataset(ensemble, X_test, ds_test, Sm, Sstd, Tm, Tstd)
+
         ds_test.to_netcdf(f"{path_out}/test_ds.nc")
+
+
     else:
         ds_train = predict_dataset(ensemble, X_train, ds_train, Sm, Sstd, Tm, Tstd)
         ds_train.to_netcdf(f"{path_out}/full_ds.nc")
+       
     logging.info(f"Predictions finished and saved in {path_out}")
 
 
