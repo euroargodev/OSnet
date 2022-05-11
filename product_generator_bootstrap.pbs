@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -q omp
+#PBS -l ncpus=16
+#PBS -l mem=32gb
+#PBS -l walltime=04:00:00
+
+source /usr/share/Modules/3.2.10/init/bash
+module load conda/latest
+source activate /home1/datahome/lbachelo/conda-env/lbaneuralnet
+cd /home1/datahome/lbachelo/Documents/neuralnet/generate_product
+
+python product_generation_bootstrap.py /home/datawork-lops-bluecloud/osnet/data_remote_sensing/Gridded_input_v3.nc /home/datawork-lops-bluecloud/osnet/models/bootstrap/ /home/datawork-lops-bluecloud/osnet/product_out/bootstrap
