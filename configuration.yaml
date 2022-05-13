@@ -1,12 +1,11 @@
-#Positions configuration - draw a square **********
+#Study boxes **********
 longitude1: -20
 longitude2: 5
 
 latitude1: 77
 latitude2: 69
 
-#Square of oceans
-
+#Oceans boxes
 longitude1_oceans: -41
 longitude2_oceans: 25
 
@@ -36,7 +35,7 @@ SST_DATA_path: /Users/Administrateur/Desktop/SST/
 SST_output_path: /home/datawork-lops-bluecloud/osnet/data_remote_sensing/SST/SST_Nordic_Sea/
             #/Users/Administrateur/Desktop/SST/Nordic_Sea/
 
-SST_prefix: SST_Nordi_Sea_
+SST_prefix: SST_Nordic_Sea_
 
 #PI configuration
 PI: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 19, 22, 26, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 110, 120, 133, 147, 163, 180, 199, 221, 245, 271,301, 334, 371, 412, 458, 509, 565, 628, 697, 773, 857, 950, 1000]
@@ -51,11 +50,13 @@ CORA_sufix: _Nordic_Sea.nc
 #MDT configuration
 MDT_DATA_path: /home/datawork-lops-bluecloud/osnet/data_remote_sensing/MDT/mdt-cnes-cls18-global.nc
 
-#Output Prepossesing 
-OUTPUT_FILE_NAME: ds.nc
-
 #global ********************************************
+
+OUTPUT_FILE_NAME: file_Nordic_Sea_out.nc #https://cfconventions.org/Data/cf-conventions/cf-conventions-1.9/cf-conventions.html
+REGION_NAME: Nordic_Sea #respect the '_' for spacer
 version: 0.1
 
-name: OsNetExtended
-location: ifremer
+
+#Nural network ********************************************
+OUTPUT_FILE_NURAL_NETWORK: /home/datawork-lops-bluecloud/osnet/data_out/bootstrap/OsNet_test_Nordic_Sea/
+OUTPUT_PATH_MODELS: /home/datawork-lops-bluecloud/osnet/models/OSnet_test_Nordic_Sea
