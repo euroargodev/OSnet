@@ -269,10 +269,10 @@ def add_sig(ds):
     @return: dataset with the added variable SIG_predicted (sigma0 from the prediction of TS)
     @rtype: xarray dataset
     """
-    SA = gsw.SA_from_SP(ds['PSAL_predicted'], ds['PRES_INTERPOLATED'], ds['LONGITUDE'], ds['LATITUDE'])
-    CT = gsw.CT_from_t(SA, ds['TEMP_predicted'], ds['PRES_INTERPOLATED'])
+    SA = gsw.SA_from_SP(ds['PSAL_predicted'], ds['DEPTH'], ds['LONGITUDE'], ds['LATITUDE'])
+    CT = gsw.CT_from_t(SA, ds['TEMP_predicted'], ds['DEPTH'])
     sig = gsw.sigma0(SA, CT)
-    ds = ds.assign(variables={"SIG_predicted": (('N_PROF', 'PRES_INTERPOLATED'), sig.data)})
+    ds = ds.assign(variables={"SIG_predicted": (('N_PROF', 'DEPTH'), sig.data)})
     return ds
 
 
@@ -383,23 +383,23 @@ def predict_dataset(ensemble, X_scaled, x, Sm, Sstd, Tm, Tstd):
     pred_S_mean, pred_S_std, pred_T_mean, pred_T_std, mld, rmse_T, rmse_S = get_mean_std_pred(ensemble, X_scaled, x, Sm,
                                                                                               Sstd, Tm, Tstd)
 
-    x = x.assign(variables={"PSAL_predicted": (('N_PROF', 'PRES_INTERPOLATED'), pred_S_mean.data)})
-    x = x.assign(variables={"TEMP_predicted": (('N_PROF', 'PRES_INTERPOLATED'), pred_T_mean.data)})
+    x = x.assign(variables={"PSAL_predicted": (('N_PROF', 'DEPTH'), pred_S_mean.data)})
+    x = x.assign(variables={"TEMP_predicted": (('N_PROF', 'DEPTH'), pred_T_mean.data)})
 
-    x = x.assign(variables={"MLD_mask": (('N_PROF', 'PRES_INTERPOLATED'), mld.data)})
+    x = x.assign(variables={"MLD_mask": (('N_PROF', 'DEPTH'), mld.data)})
     x = x.assign(variables={"MLD_pred": (('N_PROF'), get_MLD_from_mask_vect(x.MLD_mask))})
 
-    x = x.assign(variables={"PSAL_predicted_std": (('N_PROF', 'PRES_INTERPOLATED'), pred_S_std.data)})
-    x = x.assign(variables={"TEMP_predicted_std": (('N_PROF', 'PRES_INTERPOLATED'), pred_T_std.data)})
+    x = x.assign(variables={"PSAL_predicted_std": (('N_PROF', 'DEPTH'), pred_S_std.data)})
+    x = x.assign(variables={"TEMP_predicted_std": (('N_PROF', 'DEPTH'), pred_T_std.data)})
 
     x = add_sig(x)
 
     ae_S = np.fabs(x['PSAL'] - x['PSAL_predicted'])
     ae_T = np.fabs(x['TEMP'] - x['TEMP_predicted'])
-    x = x.assign(variables={"ae_S": (('N_PROF', 'PRES_INTERPOLATED'), ae_S.data)})
-    x = x.assign(variables={"ae_T": (('N_PROF', 'PRES_INTERPOLATED'), ae_T.data)})
-    x = x.assign(variables={"rmse_T_model": (('Model', 'PRES_INTERPOLATED'), np.array(rmse_T))})
-    x = x.assign(variables={"rmse_S_model": (('Model', 'PRES_INTERPOLATED'), np.array(rmse_S))})
+    x = x.assign(variables={"ae_S": (('N_PROF', 'DEPTH'), ae_S.data)})
+    x = x.assign(variables={"ae_T": (('N_PROF', 'DEPTH'), ae_T.data)})
+    x = x.assign(variables={"rmse_T_model": (('Model', 'DEPTH'), np.array(rmse_T))})
+    x = x.assign(variables={"rmse_S_model": (('Model', 'DEPTH'), np.array(rmse_S))})
    
     return x
 
