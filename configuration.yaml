@@ -56,7 +56,11 @@ OUTPUT_FILE_NAME: file_Nordic_Sea_out.nc #https://cfconventions.org/Data/cf-conv
 REGION_NAME: Nordic_Sea #respect the '_' for spacer
 version: 0.1
 
+# ------ *********************  STEP 2  ***********************  -----------
+
 
 #Nural network ********************************************
 OUTPUT_FILE_NURAL_NETWORK: /home/datawork-lops-bluecloud/osnet/data_out/bootstrap/OsNet_test_Nordic_Sea/
 OUTPUT_PATH_MODELS: /home/datawork-lops-bluecloud/osnet/models/OSnet_test_Nordic_Sea
+
+

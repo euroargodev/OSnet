@@ -94,6 +94,7 @@ def prepare_data(path):
     x['VGOS'] = x['VGOS'].astype(np.float32)
     x['VGOSA'] = x['VGOSA'].astype(np.float32)
     x['SLA_err'] = x['SLA_err'].astype(np.float32)
+    
     # compute week of year
     day = np.array(pd.DatetimeIndex(x['time'].data).dayofyear).astype(np.int32)
     x = x.assign(variables={"dayOfYear": (('time'), day)})
