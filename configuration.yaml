@@ -1,65 +1,77 @@
-#Study boxes **********
+##########
+# DOMAIN #
+##########
+# Study box:
 longitude1: -20
 longitude2: 5
 
 latitude1: 77
 latitude2: 69
 
-#Oceans boxes
+# Ocean box:
 longitude1_oceans: -41
 longitude2_oceans: 25
 
 latitude1_oceans: 81
 latitude2_oceans: 60
 
-#time intervals YEARS
+# time period YEARS
 YEARS_1: 1993
 YEARS_2: 2020
 
-#BATHYMETRIE configurations*************************
-BATHYMETRIE_path: /home1/datahome/mlejeune/assets/BATYMETRIE/ETOPO1_Bed_c_gmt4.grd
-BATHYMETRIE_output_path: /home1/datahome/mlejeune/assets/BATYMETRIE/
+####################
+# OSnet 2D DATASET #
+####################
 
+# BATHYMETRIE input:
+BATHYMETRIE_path: /home1/datahome/mlejeune/assets/BATYMETRIE/ETOPO1_Bed_c_gmt4.grd
+# BATHYMETRIE output:
+BATHYMETRIE_output_path: /home1/datahome/mlejeune/assets/BATYMETRIE/
 BATHYMETRIE_FILE_NAME: bathymetry.nc
 
-#SLA configurations********************************
-
+# SLA input:
 SLA_DATA_path: /home/ref-cmems-public/tac/sea-level/SEALEVEL_GLO_PHY_L4_REP_OBSERVATIONS_008_047/dataset-duacs-rep-global-merged-allsat-phy-l4/
-
+# SLA output:
 SLA_path: /home/datawork-lops-bluecloud/osnet/data_remote_sensing/SLA/SLA_Nordic_Sea/
 SLA_prefix: SLA_Nordic_Sea_
 
-
-#SST configurations********************************
+# SST input:
 SST_DATA_path: /Users/Administrateur/Desktop/SST/
+# SST output:
 SST_output_path: /home/datawork-lops-bluecloud/osnet/data_remote_sensing/SST/SST_Nordic_Sea/
-            #/Users/Administrateur/Desktop/SST/Nordic_Sea/
-
 SST_prefix: SST_Nordic_Sea_
 
-#PI configuration
-PI: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 19, 22, 26, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 110, 120, 133, 147, 163, 180, 199, 221, 245, 271,301, 334, 371, 412, 458, 509, 565, 628, 697, 773, 857, 950, 1000]
-
-
-#CORA configuration
-CORA_DATA_REP: /home/datawork-coriolis-cora-s/INSITU/global/
-CORA_OUTPUT:  /home1/datahome/mlejeune/cora_Nordic_Sea/test/
-
-CORA_sufix: _Nordic_Sea.nc
-
-#MDT configuration
+# MDT input:
 MDT_DATA_path: /home/datawork-lops-bluecloud/osnet/data_remote_sensing/MDT/mdt-cnes-cls18-global.nc
 
-#global ********************************************
+####################
+# OSnet 1D DATASET #
+####################
+
+# Standard pressure levels to interpolate input data on
+# (this is the final vertical grid of the OSnet product !)
+PI: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 19, 22, 26, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 110, 120, 133, 147, 163, 180, 199, 221, 245, 271,301, 334, 371, 412, 458, 509, 565, 628, 697, 773, 857, 950, 1000]
+
+# CORA input:
+CORA_DATA_REP: /home/datawork-coriolis-cora-s/INSITU/global/
+# CORA output:
+CORA_OUTPUT:  /home1/datahome/mlejeune/cora_Nordic_Sea/test/
+CORA_sufix: _Nordic_Sea.nc
+
+
+###########
+# GENERAL #
+###########
 
 OUTPUT_FILE_NAME: file_Nordic_Sea_out.nc #https://cfconventions.org/Data/cf-conventions/cf-conventions-1.9/cf-conventions.html
 REGION_NAME: Nordic_Sea #respect the '_' for spacer
 version: 0.1
 
-# ------ *********************  STEP 2  ***********************  -----------
+################
+# OSnet output #
+################
 
-
-#Nural network ********************************************
+# Neural network
 OUTPUT_FILE_NURAL_NETWORK: /home/datawork-lops-bluecloud/osnet/data_out/bootstrap/OsNet_test_Nordic_Sea/
 OUTPUT_PATH_MODELS: /home/datawork-lops-bluecloud/osnet/models/OSnet_test_Nordic_Sea
 
