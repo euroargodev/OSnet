@@ -24,9 +24,10 @@ YEARS_2: 2020
 ####################
 
 # BATHYMETRIE input:
-BATHYMETRIE_path: /home1/datahome/mlejeune/assets/BATYMETRIE/ETOPO1_Bed_c_gmt4.grd
+#BATHYMETRIE_path: /home/datawork-lops-bluecloud/osnet-extended/mlejeune/assets/BATYMETRIE/ETOPO1_Bed_c_gmt4.grd
+BATHYMETRIE_path: /home/datawork-lops-bluecloud/osnet/ETOPO1_Ice_g_gmt4.grd
 # BATHYMETRIE output:
-BATHYMETRIE_output_path: /home1/datahome/mlejeune/assets/BATYMETRIE/
+BATHYMETRIE_output_path: /home/datawork-lops-bluecloud/osnet-extended/mlejeune/assets/BATYMETRIE/
 BATHYMETRIE_FILE_NAME: bathymetry.nc
 
 # SLA input:
@@ -36,7 +37,7 @@ SLA_path: /home/datawork-lops-bluecloud/osnet/data_remote_sensing/SLA/SLA_Nordic
 SLA_prefix: SLA_Nordic_Sea_
 
 # SST input:
-SST_DATA_path: /Users/Administrateur/Desktop/SST/
+SST_DATA_path: /home/datawork-cersat-public/provider/cci_sst/satellite/l4/v2.1/
 # SST output:
 SST_output_path: /home/datawork-lops-bluecloud/osnet/data_remote_sensing/SST/SST_Nordic_Sea/
 SST_prefix: SST_Nordic_Sea_
@@ -55,7 +56,7 @@ PI: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 19, 22, 26, 30, 35, 40, 45, 50, 55,
 # CORA input:
 CORA_DATA_REP: /home/datawork-coriolis-cora-s/INSITU/global/
 # CORA output:
-CORA_OUTPUT:  /home1/datahome/mlejeune/cora_Nordic_Sea/test/
+CORA_OUTPUT:  /home/datawork-lops-bluecloud/osnet-extended/mlejeune/cora_Nordic_Sea/test/
 CORA_sufix: _Nordic_Sea.nc
 
 
