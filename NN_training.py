@@ -95,7 +95,7 @@ def format_input(x, scaler_input=None):
     X[:, 8] = x['UGOS'].data
     X[:, 9] = x['VGOS'].data
     X[:, 10] = x['SST'].data
-    X[:, 11] = -x['bathy'].data
+    X[:, 11] = -x['BATHY'].data
 
     if scaler_input is None:
         scaler_input = preprocessing.StandardScaler().fit(X)
