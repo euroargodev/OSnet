@@ -1,4 +1,7 @@
-workflow
+OSnet "all depth"
+This is an updated version of OSnet, that allows hydrographic profiles to be of different length. This is still in developpement. The preprocessing includes now a threshold selection of the shortest profiles to take into account in the analysis. 
+
+Workflow :
 
 - Preprocessing 1 to 5
 
