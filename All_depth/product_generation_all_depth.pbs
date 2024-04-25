@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -q omp
+#PBS -l ncpus=8
+#PBS -l mem=32gb
+#PBS -l walltime=2:00:00
+
+source /usr/share/Modules/3.2.10/init/bash
+module load conda/latest
+source activate /home1/datahome/epauthen/conda-env/EP_kernel
+
+cd /home1/datahome/epauthen/All_depth
+
+python product_generation_all_depth.py /home/datawork-lops-bluecloud/osnet/data_remote_sensing/Gridded_input500_9319_maskbathy.nc /home/datawork-lops-bluecloud/osnet/models/all_depth500 /home/datawork-lops-bluecloud/osnet/product_out/all_depth500
+ 

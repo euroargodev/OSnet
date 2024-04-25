@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -q omp
+#PBS -l ncpus=16
+#PBS -l mem=32gb
+#PBS -l walltime=15:00:00
+
+source /usr/share/Modules/3.2.10/init/bash
+module load conda/latest
+source activate /home1/datahome/epauthen/conda-env/EP_kernel
+cd /home1/datahome/epauthen/All_depth
+
+python NN_train.py
